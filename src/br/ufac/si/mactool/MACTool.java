@@ -36,6 +36,8 @@ public class MACTool
     		"Devs 1", "Devs 2", "Different devs", "Same devs", "Devs intersection", 
     		"Commits 1", "Commits 2", "Changed files 1", "Changed files 2", "Changed files intersection", "Has conflict?", "Conflicted Files", "Chunks"};
 	
+	public static final String TECHNICAL_DEBT_HEADER[] = {"Hash", "Merge timestamp", "Has conflict?", "Chunks", "TDCode"};
+
 	public static void main(String[] args)
 	{
 		for(int i = 0; i < args.length; i++)
@@ -60,6 +62,7 @@ public class MACTool
 		MergeCommitsDao mergeCommitsDao = new MergeCommitsDao(repos.getProject());
 
         ArrayList<String> linesConflito = new ArrayList<String>(), linesGeral = new ArrayList<String>();
+		ArrayList<String> linesTD = new ArrayList<String>();
         List<String> merges = repos.getListOfMerges();
         int max = merges.size(), cont = 0;
         
@@ -184,6 +187,7 @@ public class MACTool
             int arquivos = RevisionAnalyzer.hasConflictNum(repos.getProject().toString(), merge.getParents()[0], merge.getParents()[1]);
             int contAmbos = 0, contNull = 0;
             int chunks = 0;
+			int tdCode = 0;
             boolean conflito = false;
         	String descricaoArquivos = "";
         	
@@ -194,8 +198,12 @@ public class MACTool
             	//=======// Chunks //=======//
                 conflito = true;                
                 for(String line : RunGit.getListOfResult("git diff", repos.getProject()))
-                	if(line.replace("+","").startsWith("======="))
+                	if(line.replace("+","").startsWith("=======")){
+						if(line.contains("TODO")){
+							tdCode++;
+						}
                 		chunks++;
+					}
             	
             	//=======// Arquivos //=======//
             	//System.out.println("git diff --name-only --diff-filter=U");
@@ -230,6 +238,7 @@ public class MACTool
                 	}
                 }
                 linesConflito.add(merge.getHash()+","+numIntersec+","+arquivos+","+contAmbos+","+contNull+","+((double)contAmbos/arquivos)+","+descricaoArquivos);
+				linesTD.add(merge.getHash()+","+mergeTimestamp+","+(conflito ? "YES" : "NO")+","+chunks+","+tdCode);
             }
             
             linesGeral.add(merge.getHash()+","+mergeTimestamp+","+branchingTime+","+isolamentoMerge+","+committers1+","+committers2+","+diffCommitters+","+sameCommitters+","+
@@ -237,8 +246,9 @@ public class MACTool
         }
         try
         {
-	        Export.toCSV(repos, "conflict", CONFLICT_HEADER, linesConflito);
-	        Export.toCSV(repos, "general", GENERAL_HEADER, linesGeral);
+	        //Export.toCSV(repos, "conflict", CONFLICT_HEADER, linesConflito);
+	        //Export.toCSV(repos, "general", GENERAL_HEADER, linesGeral);
+			Export.toCSV(repos, "technical-debt", TECHNICAL_DEBT_HEADER, linesTD);
         }
         catch(StringIndexOutOfBoundsException ex)
         {
