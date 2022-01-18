@@ -26,10 +26,3 @@ After **macTool.jar**, you must insert repositories paths separated by space.
 ```
 java -jar macTool.jar REPOSITORY_PATH REPOSITORY_PATH REPOSITORY_PATH
 ```
-
-# Team
-
-- Catarina Costa (joined in Aug 2018) 
-- Bruno Trindade (joined in Aug 2018) 
-- José William (joined in Aug 2019)
-- João Felipe (joined in May 2020)
