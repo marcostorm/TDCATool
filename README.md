@@ -1,10 +1,10 @@
 # About
 
-**macTool** (Merge Attribute Collector) main goal is to collect attributes from merges. New attributes are welcome..<br />
+**TDCATool** (Technical Debt Conflict Analyzer Tool) main goal is to make an analysis of technical debt from merge conflicts. New attributes are welcome..<br />
 
 # How to use
 
-To use **macTool**, you need to have git properly installed on your computer, with the configured environment variable and JRE.
+To use **TDCATool**, you need to have git properly installed on your computer, with the configured environment variable and JRE.
 
 First of all, you must download the latest version of macTool in this page and save all Git.
 
@@ -26,10 +26,3 @@ After **macTool.jar**, you must insert repositories paths separated by space.
 ```
 java -jar macTool.jar REPOSITORY_PATH REPOSITORY_PATH REPOSITORY_PATH
 ```
-
-# Team
-
-- Catarina Costa (joined in Aug 2018) 
-- Bruno Trindade (joined in Aug 2018) 
-- José William (joined in Aug 2019)
-- João Felipe (joined in May 2020)
