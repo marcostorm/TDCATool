@@ -1,0 +1,189 @@
+  	<a target="_blank" rel="noopener" href="http://healthtree.org/"><img src="organisations/healthtree.png" alt="HealthTree logo" loading="lazy"></a>
+  	<a target="_blank" rel="noopener" href="https://itslearning.com"><img src="organisations/itslearning.svg" alt="itslearning logo" loading="lazy"></a>
+  	<a target="_blank" rel="noopener" href="https://jacoux.com"><img src="organisations/jacoux.png" alt="Jacoux logo" loading="lazy"></a>
+ +	<a target="_blank" rel="noopener" href="https://jingmnt.co.za"><img src="organisations/jingmnt.png" alt="Jingmnt logo" loading="lazy"></a>
++ 	<a target="_blank" rel="noopener" href="https://www.mentorcv.com"><img src="organisations/mentorcv.png" alt="Mentor CV logo" loading="lazy"></a>
+  	<a target="_blank" rel="noopener" href="https://www.metrovias.com.ar/"><img src="organisations/metrovias.svg" alt="Metrovias logo" loading="lazy"></a>
+  	<a target="_blank" rel="noopener" href="http://mustlab.ru"><img src="organisations/mustlab.png" alt="Mustlab logo" loading="lazy"></a>
+  	<a target="_blank" rel="noopener" href="https://www.nesta.org.uk"><img src="organisations/nesta.svg" alt="Nesta logo" loading="lazy"></a>
+  // (8:0) {#each things as thing}
+  // (6:0) {#each things as thing}
++ test/*/samples/*/output.js
+  			// TODO server-render group bindings
+- 				// Do not escape HTML content
+  	<a target="_blank" rel="noopener" href="https://itslearning.com"><img src="organisations/itslearning.svg" alt="itslearning logo"></a>
+  	<a target="_blank" rel="noopener" href="http://mustlab.ru"><img src="organisations/mustlab.png" alt="Mustlab logo"></a>
+  	<a target="_blank" rel="noopener" href="https://www.nesta.org.uk"><img src="organisations/nesta.svg" alt="Nesta logo"></a>
+ +		<a target="_blank" rel="noopener" href="https://www.nonkositelecoms.com"><img src="organisations/nonkosi.svg" alt="Nonkosi Telecoms logo"></a>
++ 	<a target="_blank" rel="noopener" href="https://www.nzz.ch"><img src="organisations/nzz.svg" alt="Neue Zürcher Zeitung logo"></a>
+  	<a target="_blank" rel="noopener" href="https://nytimes.com"><img src="organisations/nyt.svg" alt="The New York Times logo"></a>
+  	<a target="_blank" rel="noopener" href="https://openstate.eu"><img src="organisations/open-state-foundation.svg" alt="Open State Foundation logo"></a>
+  	<a target="_blank" rel="noopener" href="https://razorpay.com"><img src="organisations/razorpay.svg" alt="Razorpay logo"></a>
+ +// used internally for testing
+  			// TODO server-render group bindings
++ 				// Do not escape HTML content
+  				// Do not escape HTML content
+  			// TODO server-render group bindings
+ +				// Do not escape HTML content
++ 			res.hasHeader('Cache-Control') || res.setHeader('Cache-Control', 'max-age=600'); // 10min default
+  		// TODO update Sapper so that we can pass props to the client
+  				block.maintain_context = true; // TODO put this somewhere more logical
+ +      "version": "git+https://github.com/sveltejs/eslint-plugin-svelte3.git#5fc4861d4b191649b0badf4f9a4c2470f08b237e",
+ +      "from": "git+https://github.com/sveltejs/eslint-plugin-svelte3.git#semver:*",
++       "resolved": "https://registry.npmjs.org/eslint-plugin-svelte3/-/eslint-plugin-svelte3-0.4.4.tgz",
+  // (19:0) {#each things as thing (thing.id)}
++ 		/* grid-column: 2/4; */
+ +	// html-has-lang
+ +	// iframe-has-title
+ +	// anchor-has-content
+ +	// heading-has-content
++ // source: https://gist.github.com/ArjanSchouten/0b8574a6ad7f5065a5e7
+ +			// no-distracting-elements
+ -				// special case — <option value={foo}> — see below
+ +			// aria-props
+ +					// aria-unsupported-elements
+ +			// aria-role
+ +					// aria-unsupported-elements
+ +			// no-access-key
+ +			// no-autofocus
+ +			// scope
+ +			// tabindex-no-positive
+ +		// handle special cases
++ 		// special case — in a case like this...
++ 		//
++ 		//   <select bind:value='foo'>
++ 		//     <option value='{bar}'>bar</option>
++ 		//     <option value='{baz}'>baz</option>
++ 		//   </option>
++ 		//
++ 		// ...we need to know that `foo` depends on `bar` and `baz`,
++ 		// so that if `foo.qux` changes, we know that we need to
++ 		// mark `bar` and `baz` as dirty too
++ 				// TODO does this also apply to e.g. `<input type='checkbox' bind:group='foo'>`?
++ 			// TODO validate slots — no nesting, no dynamic names...
++ 		const nodes = parentNodes && block.getUniqueName(`${this.var}_nodes`) // if we're in unclaimable territory, i.e. <head>, parentNodes is null
++ 			`${this.findNearest(/^Component/).var}._slotted${prop}` : // TODO this looks bonkers
++ 			// TODO we eventually need to consider what happens to elements
++ 			// that belong to the same outgroup as an outroing element...
++ 		// insert static children with textContent or innerHTML
++ 			//(this.hasAncestor('EachBlock') && this.bindings.length > 0) ||
++ 		// TODO munge in constructor
++ 			}); // TODO use stringifyProps here, once indenting is fixed
++ 			// media bindings — awkward special case. The native timeupdate events
++ 			// fire too infrequently, so we need to take matters into our
++ 			// own hands
++ 					// special case
++ 			// split by | to remove stop, prevent, pass, etc.
++ 			// get a name for the event handler that is globally unique
++ 			// if hoisted, locally unique otherwise.
++ 			const component = block.alias('component'); // can't use #component, might be hoisted
++ 			// create the handler body
++ 				const fn = `%transitions-${intro.name}`; // TODO add built-in transitions?
+ -				// TODO hide elements that have outro'd (unless they belong to a still-outroing
+ -				// group) prior to their removal from the DOM
+- 			// TODO verify that it's a valid callee (i.e. built-in or declared method)
+- 			handler.render(compiler, block, false); // TODO hoist?
+- 				// TODO dry this out
+ +			// in dev mode, throw if read-only values are written to
+ +			// bind:online is a special case, we need to listen for two separate events
+ +				// TODO other bidirectional bindings...
+- 		// special case... might need to abstract this out if we add more special cases
+- 		// another special case. (I'm starting to think these are all special cases.)
+- 			// add initial value
+- 		// noop
++ 				// TODO there shouldn't be anything else here...
+ +		// initial values for e.g. window.innerWidth, if there's a <svelte:window> meta tag
+- /* generated by Svelte vX.Y.Z */
+- /* generated by Svelte vX.Y.Z */
+- /* generated by Svelte vX.Y.Z */
++ 		// event handlers
++ 					// allow event.stopPropagation(), this.select() etc
++ 					// TODO verify that it's a valid callee (i.e. built-in or declared method)
++ 					if (shouldHoist) eventHandlerUsesComponent = true; // this feels a bit hacky but it works!
++ 			// get a name for the event handler that is globally unique
++ 			// if hoisted, locally unique otherwise
++ 			// create the handler body
++ 		// refs
++ 			generator.usesRefs = true; // so component.refs object is created
+  /* generated by Svelte vX.Y.Z */
+ -	// no `p()` here — we don't want to update outroing nodes,
+ -	// as that will typically result in glitching
+ +		// no `p()` here — we don't want to update outroing nodes,
+ +		// as that will typically result in glitching
+ -// if any of the siblings have outros, we need to keep references to the blocks
+ -// (TODO does this only apply to bidi transitions?)
+ +		block.contextualise(node.expression); // TODO remove
++ 		// unless this Text node is inside a <script> or <style> element, escape &,<,>
+  				} else if (node.name === ':Window') { // TODO do this in parse?
+  				} else if (node.name === ':Head') { // TODO do this in parse?
+ +				} else if (node.type === 'Element' && node.name === 'title') { // TODO do this in parse?
+ +					showOutput(cwd, { shared, format: 'cjs' }, svelte); // eslint-disable-line no-console
++ 					showOutput(cwd, { shared, store: !!compileOptions.store }, svelte); // eslint-disable-line no-console
+ -				// set of hacks to support transition tests
+ +					// set of hacks to support transition tests
+ +						showOutput(cwd, { shared, format: 'cjs', hydratable: hydrate }, svelte); // eslint-disable-line no-console
++ 					showOutput(cwd, { shared, hydratable: hydrate, store: !!compileOptions.store }, svelte); // eslint-disable-line no-console
+ -				// Put the constructor on window for testing
+ +					// Put the constructor on window for testing
+ +						showOutput(cwd, { shared, format: 'cjs', hydratable: hydrate }, svelte); // eslint-disable-line no-console
++ 					showOutput(cwd, { shared, hydratable: hydrate, store: !!compileOptions.store }, svelte); // eslint-disable-line no-console
+  /* generated by Svelte vX.Y.Z */
+  /* generated by Svelte vX.Y.Z */
+  /* generated by Svelte vX.Y.Z */
+  /* generated by Svelte vX.Y.Z */
+  /* generated by Svelte vX.Y.Z */
+ -// (1:0) {{#each comments as comment, i}}
+ +	// (1:0) {{#each comments as comment, i}}
+  /* generated by Svelte vX.Y.Z */
+ -// (1:0) {{#each comments as comment, i}}
+ +	// (1:0) {{#each comments as comment, i}}
++ /* generated by Svelte v1.39.2 */
++ /* generated by Svelte v1.39.2 */
++ /* generated by Svelte v1.39.2 */
++ /* generated by Svelte v1.39.2 */
++ /* generated by Svelte v1.39.2 */
++ /* generated by Svelte v1.39.2 */
++ /* generated by Svelte v1.39.2 */
++ /* generated by Svelte v1.39.2 */
++ /* generated by Svelte v1.39.2 */
++ /* generated by Svelte v1.39.2 */
++ /* generated by Svelte v1.39.2 */
++ /* generated by Svelte v1.39.2 */
++ /* generated by Svelte v1.39.2 */
++ /* generated by Svelte v1.39.2 */
++ /* generated by Svelte v1.39.2 */
++ /* generated by Svelte v1.39.2 */
++ /* generated by Svelte v1.39.2 */
++ /* generated by Svelte v1.39.2 */
++ /* generated by Svelte v1.39.2 */
++ /* generated by Svelte v1.39.2 */
+ -	// TODO deprecate component.teardown()
+  			// verify that the right elements have scoping selectors
+ +					// dom
+- 					// ssr
++ 				// dom
++ 				// ssr
+ +	// TODO share <style> tag between all transitions?
+  test/sourcemaps/samples/*/output.js
+  test/sourcemaps/samples/*/output.js.map
+ +			const value = shared[ key ]; // eslint-disable-line import/namespace
+ +			if ( key === 'transitionManager' ) { // special case
++ 		namespace: node.name === 'svg' ? 'http://www.w3.org/2000/svg' : state.namespace,
++ 		if ( event === 'scroll' ) { // TODO other bidirectional bindings...
+ +				// <:Window> bindings
+ +		// allow compiler to deconflict user's `import { get } from 'whatever'` and
+ +		// Svelte's builtin `import { get, ... } from 'svelte/shared.js'`;
+ +		// initial values for e.g. window.innerWidth, if there's a <:Window> meta tag
+  // based on http://developers.whatwg.org/syntax.html#syntax-tag-omission
+ +		// allow compiler to deconflict user's `import { get } from 'whatever'` and
+ +		// Svelte's builtin `import { get, ... } from 'svelte/shared.js'`;
+ +		// initial values for e.g. window.innerWidth, if there's a <:Window> meta tag
+  					// static attributes
+  						// special case
+  						// TODO this attribute must be static – enforce at compile time
+ +			// walk the children here
+ +			// unset the children, to avoid them being visited again
++ 			// Component has children
++ 				// {{YIELD STUFF}}
++ 				// Don't render children twice
+  		// special case – bound <option> without a value attribute

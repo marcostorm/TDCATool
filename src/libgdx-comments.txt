@@ -1,0 +1,369 @@
+-  *   http://www.apache.org/licenses/LICENSE-2.0
+ +		// TODO Auto-generated method stub
+ +		// TODO Auto-generated method stub
+ +		// TODO Auto-generated method stub
+ +	/** from https://github.com/toji/game-shim/blob/master/game-shim.js
+ +				// Chrome initially launched with this interface
+ +				// Some older builds might provide isLocked as a function
+ +				// For compatibility with early Firefox build
+ +	/** from https://github.com/toji/game-shim/blob/master/game-shim.js
+ +		// Navigator pointer is not the right interface according to spec.
+ +		// Here for backwards compatibility only
+ +		// element.requestPointerLock
+ +	/** from https://github.com/toji/game-shim/blob/master/game-shim.js */
+ +	/** from https://github.com/toji/game-shim/blob/master/game-shim.js
+ +	/** from https://github.com/toji/game-shim/blob/master/game-shim.js
+ +		// FIXME??
+ +	// kindly borrowed from our dear playn friends...
+ +				// on mac
+ +			// handle touchpad for chrome
+ +	/** Kindly borrowed from PlayN. **/
+ +	/** Kindly borrowed from PlayN. **/
+ +		float xScaleRatio = target.getWidth() * 1f / target.getClientWidth(); // Correct for canvas CSS scaling
+ +	/** Kindly borrowed from PlayN. **/
+ +		float yScaleRatio = target.getHeight() * 1f / target.getClientHeight(); // Correct for canvas CSS scaling
+ +		float xScaleRatio = target.getWidth() * 1f / target.getClientWidth(); // Correct for canvas CSS scaling
+ +		float yScaleRatio = target.getHeight() * 1f / target.getClientHeight(); // Correct for canvas CSS scaling
+ +				// Gdx.app.log("GwtInput", "keydown");
+ +				// Gdx.app.log("GwtInput", "keypress");
+ +				// Gdx.app.log("GwtInput", "keyup");
+ +			// Gdx.app.log("GwtInput", "unfocused");
+ +// if(hasFocus) e.preventDefault();
+ +	/** borrowed from PlayN, thanks guys **/
+ +			return Keys.UNKNOWN; // FIXME
+ +			return Keys.UNKNOWN; // FIXME
+ +			return Keys.UNKNOWN; // FIXME
+ +			return Keys.UNKNOWN; // FIXME
+ +			// case KEY_SELECT_KEY: return Keys.SELECT_KEY;
+ +			return Keys.UNKNOWN; // FIXME
+ +			return Keys.UNKNOWN; // FIXME
+ +			return Keys.UNKNOWN; // FIXME
+ +			return Keys.UNKNOWN; // FIXME
+ +	// these are absent from KeyCodes; we know not why...
++ 	/** Resets all Input events (called on main loop after rendering) */
+ - *   http://www.apache.org/licenses/LICENSE-2.0
++ /** @author jshapcot */
++ 		// we hook into View, for LWPs we call onTouch below directly from
++ 		// within the AndroidLivewallpaperEngine#onTouchEvent() method.
++ 		// this is for backward compatibility: libGDX always caught the circle button, original comment:
++ 		// circle button on Xperia Play shouldn't need catchBack == true
++ 		// synchronized in handler.postTouchEvent()
++ 		// If the key is held sufficiently long that it repeats, then the initial down is followed
++ 		// additional key events with ACTION_DOWN and a non-zero value for getRepeatCount().
++ 		// We are only interested in the first key down event here and must ignore all others
++ 			// Android doesn't report a unicode char for back space. hrm...
++ 				// Xperia hack for circle key. gah...
++ 				// Xperia hack for circle key. gah...
++ 				return; // compass + accelerometer in free fall
++ 	 * "http://developer.android.com/reference/android/hardware/SensorManager.html#getRotationMatrix(float[], float[], float[], float[])"
++ 		else // compass + accelerometer
++ 				for (Sensor sensor : rotationVectorSensors){ // favor AOSP sensor
++ 		// erase pointer ids. this sucks donkeyballs...
++ 		// erase touched state. this also sucks donkeyballs...
+  	/** whether to use debugging mode for OpenGL calls. Errors will result in a RuntimeException being thrown. */
++ 	/** whether SoundManager2 should prefer to use flash instead of html5 audio (it should fall back if not available) */
+  	/** preserve the back buffer, needed if you fetch a screenshot via canvas#toDataUrl, may have performance impact **/
++ 			// initialize SoundManager2
+ -  - curl -L http://dl.google.com/android/repository/android-ndk-r16b-linux-x86_64.zip -O
+ + *   http://www.apache.org/licenses/LICENSE-2.0
++  *   http://www.apache.org/licenses/LICENSE-2.0
+  - Added orientation to Box2D Transform class, see https://github.com/libgdx/libgdx/pull/3308
++ - Fix broken kerning for FreeType fonts, see https://github.com/libgdx/libgdx/pull/3756
+  	/** Near and far initialization before computation. You should put the same values as the main camera */
+ +	// @TODO Merge renderable pools (ModelBatch)
+ +	/** list of Renderables to be rendered in the current batch **/
+ +	/** Renderable providers array */
+ +	/** Objects used for computation */
++ 	/** Array of frustumed instances */
++ 	/** Objects used for computation */
+ +			// Center
+ +			// Radius
++ 					// @TODO If inside instance, loop over vertices
+ +- Gdx.input.setCursorImage removed, replaced with Gdx.graphics.setCursor and Gdx.graphics.newCursor see https://github.com/libgdx/libgdx/pull/2841/
+ +- Added LwjglApplicationConfiguration#gles30Context*Version, see https://github.com/libgdx/libgdx/pull/2941
+ +- Added OpenGL error checking to GLProfiler, see https://github.com/libgdx/libgdx/pull/2889
+ +- TextField cursor and selection size changed. https://github.com/libgdx/libgdx/commit/2a830dea348948d2a37bd8f6338af2023fec9b09
+ +- GlyphLayout text wrapping changed to not trim whitespace. https://github.com/libgdx/libgdx/commit/ee42693da067da7c5ddd747f051c1423d262cb96
+  - API Change: Refactored Window. https://github.com/libgdx/libgdx/commit/7d372b3c67d4fcfe4e82546b0ad6891d14d03242
+  	/** Construct a Cubemap with the specified texture files for the sides, optionally generating mipmaps. */
+  	/** Construct a Cubemap with the specified {@link Pixmap}s for the sides, does not generate mipmaps. */
+  	/** @return the number of indices currently stored in this buffer */
++ 	/** the frame buffers **/
++ 	/** the color buffer texture **/
++ 	/** the default framebuffer handle, a.k.a screen. */
++ 	/** true if we have polled for the default handle already. */
++ 	/** the framebuffer handle **/
++ 	/** the depthbuffer render object handle **/
++ 	/** the stencilbuffer render object handle **/
++ 	/** width **/
++ 	/** height **/
++ 	/** depth **/
++ 	/** depth **/
++ 	/** stencil **/
++ 	/** format **/
+  	/** camera **/
+ +	/** Override this method in a derived class to set up the backing texture as you like. */
++ 	/** Override this method in a derived class to set up the backing texture as you like. */
++ 		// iOS uses a different framebuffer handle! (not necessarily 0)
++ 	/** Releases all resources associated with the FrameBuffer. */
++ 	/** Makes the frame buffer current so everything gets drawn to it. */
++ 	/** Unbinds the framebuffer, all drawing will be performed to the normal framebuffer from here on. */
++ 	/** Sets viewport to the dimensions of framebuffer. Called by {@link #begin(Camera)}. */
+  	/** Bind the next side of cubemap and return false if no more side. */
+  	/** Unbinds the framebuffer, all drawing will be performed to the normal framebuffer from here on. */
+  	/** @return the color buffer cubemap */
++ 	/** @return the height of the framebuffer in pixels */
++ 	/** @return the width of the framebuffer in pixels */
+  	/** list of all meshes **/
+  - Added HttpRequestBuilder, see https://github.com/libgdx/libgdx/pull/2698
+ +- API Change: deprecation of bounding box methods, see https://github.com/libgdx/libgdx/pull/2408
+  - API Addition: added annotation support in reflection layer, thanks code-disaster! https://github.com/libgdx/libgdx/pull/2215
+  - API Addition: shapes like Rect, Circle etc. now implement Shape2D interface so you can put them all into a single collection https://github.com/libgdx/libgdx/pull/2178 
+  - API Addition: bitmap fonts can now be loaded from an atlas via AssetManager/BitmapFontLoader, see https://github.com/libgdx/libgdx/pull/2110
++ - API Change: Button now uses padding of all background drawables. https://github.com/libgdx/libgdx/issues/2322
+  - API change: Viewport refactoring. https://github.com/libgdx/libgdx/pull/2220
++ 	/** @author Nathan Sweet */
++ 	/** @author Nathan Sweet */
++ 			// Handle cases where Android holds on to static objects
+  - Possibility to override density on desktop to simulate mobile devices, see https://github.com/libgdx/libgdx/pull/1825
+  - Progressive JPEG support through JPGD (https://code.google.com/p/jpeg-compressor/).
+ +		// Matrices
+ +		// Stem
++ 		// Matrices
++ 		// Stem
+  		// Cap
+ +- Added i18n localization/internationalization support, thanks davebol, see https://github.com/libgdx/libgdx/pull/1769
+ +- Possibility to override density on desktop to simulate mobile devices, see https://github.com/libgdx/libgdx/pull/1825
++ - Progressive JPEG support through JPGD (https://code.google.com/p/jpeg-compressor/).
++ 		// HACK: Make sure UITouch has been registered
+  /** @author xoppa */
+  /** @author xoppa */
+- 	// Set this to the path of the lib to use it on desktop instead of default lib. 
+- 	private final static String customDesktopLib = null;//"D:\\Data\\code\\android\\libs\\libgdx\\extensions\\gdx-bullet\\jni\\vs\\gdxBullet\\x64\\Debug\\gdxBullet.dll";
++ 	// Set this to the path of the lib to use it on desktop instead of default lib.
++ 	private final static String customDesktopLib = null;// "D:\\Data\\code\\android\\libs\\libgdx\\extensions\\gdx-bullet\\jni\\vs\\gdxBullet\\x64\\Debug\\gdxBullet.dll";
+  		// Need to initialize bullet before using it.
++ // lights.shadowMap = shadowLight;
++ // shadowLight.dispose();
++ // shadowLight.begin(Vector3.Zero, camera.direction);
++ // shadowBatch.begin(shadowLight.getCamera());
++ // world.render(shadowBatch, null);
++ // shadowBatch.end();
++ // shadowLight.end();
+  		// Shoot a box
++ - Removed OpenGL ES 1.0, 1.1 support; see http://www.badlogicgames.com/wordpress/?p=3311
+ +- Minimal Android version is 2.2, see http://www.badlogicgames.com/wordpress/?p=3297
+  - removed Xamarin backend, see http://www.badlogicgames.com/wordpress/?p=3213
+  - removed Xamarin backend, see http://www.badlogicgames.com/wordpress/?p=3213
+  - removed Xamarin backend, see http://www.badlogicgames.com/wordpress/?p=3213
+  				// Use a region with the same name as the font, else use a PNG file in the same directory as the FNT file.
+ +						// Use scale factor based on lineHeight (as font size) to scale the font
++ 		// @off
++ 		// @on
+  		// SoundTouchTest.class, Mpg123Test.class, WavTest.class, FreeTypeTest.class,
+  		// InternationalFontsTest.class, VorbisTest.class
+  - see http://www.badlogicgames.com/wordpress/?p=2791
+  - see http://www.badlogicgames.com/wordpress/?p=2791
+  - see http://www.badlogicgames.com/wordpress/?p=2791
+  - add asynchronous download with continuous progress feedback to GWT asset preloader, see https://github.com/libgdx/libgdx/pull/409?w=1
+  - add capability to add/exclude package/classes GWT Reflection system, see https://github.com/libgdx/libgdx/pull/409?w=1
+  //		new SharedLibraryLoader("../../extensions/gdx-controllers/gdx-controllers-desktop/libs/gdx-controllers-desktop-natives.jar").load("gdx-controllers-desktop");
+  //		new SharedLibraryLoader("../../gdx/libs/gdx-natives.jar").load("gdx");
+  		// this is only here for me to debug native code faster
++ //		new SharedLibraryLoader("../../extensions/gdx-audio/libs/gdx-audio-natives.jar").load("gdx-audio");
++ //		new SharedLibraryLoader("../../extensions/gdx-image/libs/gdx-image-natives.jar").load("gdx-image");
++ //		new SharedLibraryLoader("../../extensions/gdx-freetype/libs/gdx-freetype-natives.jar").load("gdx-freetype");
++ //		new SharedLibraryLoader("../../extensions/gdx-controllers/gdx-controllers-desktop/libs/gdx-controllers-desktop-natives.jar").load("gdx-controllers-desktop");
++ //		new SharedLibraryLoader("../../gdx/libs/gdx-natives.jar").load("gdx");
+  		// Shoot a box
+  				// If the JSON is a string but the type is not, look up the actual value by name.
+  - freetype extension supported on iOS, see http://www.badlogicgames.com/wordpress/?p=2819
+  - changed ShapeRenderer API, see http://www.badlogicgames.com/wordpress/?p=2809
++ - Changes to Intersector, Circle, Rectangle and BoundingBox for consistency in #overlap, #intersect and #contains methods, see https://github.com/libgdx/libgdx/pull/312
+- - see http://www.badlogicgames.com/wordpress/?p=2664
++ - see http://www.badlogicgames.com/wordpress/?p=2791
+  - see http://www.badlogicgames.com/wordpress/?p=2664
++ 			// FIXME dispose textures! attribtue should probably be disposable, can decide whether it wants to get rid of resource or not
+ +//			renderable.transform; FIXME multiply transform!
+  		// SoundTouchTest.class, Mpg123Test.class, WavTest.class, FreeTypeTest.class,
+  		// InternationalFontsTest.class, VorbisTest.class
+ +			//GL1
+ +					// Ensure that we get a 16bit depth-buffer. Otherwise, we'll
+ +					// fall
+ +					// back to Pixelflinger on some device (read: Samsung I7500)
+ +	// private static boolean isPowerOfTwo(int value) {
+ +	// return ((value != 0) && (value & (value - 1)) == 0);
+ +	// }
+ +// public void destroy() {
+ +// synchronized (synch) {
+ +// running = false;
+ +// destroy = true;
+ +//
+ +// // TODO: Why was the wait here? Causes deadlock!?!
+ +// // while (destroy) {
+ +// // try {
+ +// // synch.wait();
+ +// // } catch (InterruptedException ex) {
+ +// // }
+ +// // }
+ +// }
+ +// }
+ +		// HACK: added null check to handle set wallpaper from preview null
+ +		// error in renderer
++ 		// factory in use, but note: AndroidInputFactory causes exceptions when obfuscated: java.lang.RuntimeException: Couldn't construct AndroidInput, this should never happen, proguard deletes constructor used only by reflection
++ 		//input = new AndroidInput(this, this.getService(), null, config);
++ 		// added initialization of android local storage: /data/data/<app package>/files/
++ 		// FIXME restore conditional execution if lifecycle errors will occur when GLSurfaceView used. 
++ 		// GLSurfaceView is guaranteed to work with this condition on, but GLSurfaceViewCupcake requires it off,
++ 		// so I disabled it.
++ 		//if (!firstResume)	// mentioned condition
+ +	/** @deprecated Use {@link #getApplicationListener()} instead */
+  		// InternationalFontsTest.class, VorbisTest.class
+ -				executedRunnables.get(i).run(); // calls out to random app code that could do anything ...
+ -			// If one of the runnables set running to false, for example after an exit().
++ 			// If input processing set running to false.
++ 				// Avoid burning CPU when not rendering.
+ +					Thread.sleep(16); // Avoid wasting CPU when not rendering.
+  		if (config.useGL20 && (glMajorVersion >= 2 || version.contains("2.1"))) { // special case for MESA, wtf...
+- 			// FIXME - Add check for whether GL 2.0 is actually supported.
++ 		// FIXME shouldn't this check against Graphics.fullscreen instead of config.fullscreen?
++ 			// need to set the window hints every time we create a window, glfwCreateWindow resets them.
++ 			// share old window if any, so context service
+  		// InternationalFontsTest.class, VorbisTest.class
+ +			// Do nothing
+ +			// Do nothing			
+ +			// Do nothing
+ +			// Do nothing			
+ -	<classpathentry excluding="**/.svn/*" kind="src" path="src"/>
+ -	<classpathentry excluding="**/.svn/*" kind="src" path="gen"/>
+ +	<classpathentry excluding="**/.svn/*" kind="src" path="src"/>
+ +	<classpathentry excluding="**/.svn/*" kind="src" path="gen"/>
+++	<classpathentry excluding="**/.svn/*" kind="src" path="src"/>
+++	<classpathentry excluding="**/.svn/*" kind="src" path="gen"/>
+  		// InternationalFontsTest.class, VorbisTest.class
+  		// InternationalFontsTest.class, VorbisTest.class
++ //		new SharedLibraryLoader("../../extensions/gdx-controllers/gdx-controllers-desktop/libs/gdx-controllers-desktop-natives.jar").load("gdx-controllers-desktop");
++  *   http://www.apache.org/licenses/LICENSE-2.0
+  		// InternationalFontsTest.class, VorbisTest.class
+ +/* DO NOT EDIT THIS FILE - it is machine generated */
+ +/* Header for class com_badlogic_gdx_controllers_desktop_ois_Ois */
++ /* DO NOT EDIT THIS FILE - it is machine generated */
++ /* Header for class com_badlogic_gdx_controllers_desktop_ois_Ois */
+ +/* DO NOT EDIT THIS FILE - it is machine generated */
+ +/* Header for class com_badlogic_gdx_controllers_desktop_ois_OisJoystick */
+ +/* Header for class com_badlogic_gdx_controllers_desktop_ois_OisJoystick_OisPov */
++ /* DO NOT EDIT THIS FILE - it is machine generated */
++ /* Header for class com_badlogic_gdx_controllers_desktop_ois_OisJoystick */
++ /* Header for class com_badlogic_gdx_controllers_desktop_ois_OisJoystick_OisPov */
+ -		mac.libraries = ""; // FIXME
+++		mac.libraries = ""; // FIXME
++ 							// TODO Auto-generated method stub
++ 							// TODO Auto-generated method stub
++ 							// TODO Auto-generated method stub
++ 							// TODO Auto-generated method stub
++ 							// TODO Auto-generated method stub
+ -/* DO NOT EDIT THIS FILE - it is machine generated */
+ -/* Header for class com_badlogic_gdx_controllers_desktop_ois_Ois */
+ +/* DO NOT EDIT THIS FILE - it is machine generated */
+ +/* Header for class com_badlogic_gdx_controllers_desktop_ois_Ois */
+++/* DO NOT EDIT THIS FILE - it is machine generated */
+++/* Header for class com_badlogic_gdx_controllers_desktop_ois_Ois */
+ +//@line:60
++ //@line:63
+ +//@line:75
++ //@line:78
+ +//@line:94
++ //@line:97
+ +//@line:105
++ //@line:108
+ +//@line:110
++ //@line:113
+ +//@line:102
++ //@line:122
+ +//@line:169
++ //@line:189
+ +//@line:173
++ //@line:193
+ +//@line:180
++ //@line:200
+ +//@line:185
++ //@line:205
+ +//@line:190
++ //@line:210
+ +//@line:195
++ //@line:215
+ +//		new LwjglFrame(app, "Controllers", 200, 200, false);
+ +//		final JFrame frame = new JFrame("FrameDemo");
+ +//		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+ +//		frame.pack();
+ +//		frame.setVisible(true);
+ +//		SwingUtilities.invokeLater(new Runnable() {
+ +//			@Override
+ +//			public void run () {
+ +//				OisWrapper.initialize(getWindowId(frame));
+ +//			}
+ +//		});
+ +//@line:90
++ //@line:99
+ -		HWND joyHwnd = CreateWindow("Static",               // Class Name (using static so I don't have to register a class)
+ -                            		 "JoystickWindow",       // Window Name
+ -                            		 WS_BORDER,   // Window Style
+ -                            		 0, 0, 0, 0,             // x, y, width, height
+ -                            0,							 // parent handle
+ -                            0,                      // Menu handle
+ -                            0,                      // Instance handle
+ -                            0);                     // Additional Params
+ +			"Static",         // Class Name (using static so I don't have to register a class)
+ +			"JoystickWindow", // Window Name
+ +			WS_BORDER,        // Window Style
+ +			0, 0, 0, 0,       // x, y, width, height
+ +			0,                // parent handle
+ +			0,                // Menu handle
+ +			0,                // Instance handle
+ +			0);               // Additional Params
+ +//@line:109
++ //@line:117
++ 		win32home.linkerFlags += " "; // FIXME - Needs to be "-shared -o [modules] -ldinput8 -ldxguid".
+ +//@line:334
++ //@line:330
+ +//@line:338
++ //@line:334
+ +//@line:343
++ //@line:339
+ +//@line:348
++ //@line:344
+ +//@line:352
++ //@line:348
+ +//@line:356
++ //@line:352
+ +//@line:360
++ //@line:356
+ +//@line:364
++ //@line:360
+ +//@line:368
++ //@line:364
+ +//@line:372
++ //@line:368
+ +//@line:376
++ //@line:372
+ +//@line:380
++ //@line:376
+ +//@line:384
++ //@line:380
+ +		// Don't know where to use the timeout exactly yet :)
++ 		// Sets the timeout for time until TCP connection is established and timeout until first byte received to request timeout value 
+ +	/** The display scale factor (1.0f for normal; 2.0f to use retina coordinates/dimensions). */
+ +		// enable or disable screen dimming
+ +		// fix the scale factor if we have a retina device
+ +			// we have a retina device!
+ +				// it's an iPad!
+ +				// it's an iPod or iPhone
+ +			// no retina screen: no scaling!
+  		// Create: Window -> ViewController-> GameView (controller takes care of rotation)
+  				// get the view size and update graphics
+  		// attach our view to window+controller and make it visible
+ +				// assume portrait
+ +		// fix for retina coordinates if desired
+ +		// log screen dimensions
++ 			// assume portrait
+  		// return resulting view size (based on orientation)
